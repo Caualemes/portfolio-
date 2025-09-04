@@ -1,0 +1,8 @@
+/* src/index.css */
+@import "tailwindcss";
+
+/* aqui você pode colocar seu CSS extra */
+html, body {
+  height: 100%;
+}
+
