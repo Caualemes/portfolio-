@@ -1,18 +1,52 @@
-Portfólio do Cauã
-Olá! Esse é o meu cantinho na internet. Aqui, mostro um pouco da minha jornada, as tecnologias que me empolgam e os projetos que construí. Se gostar do que ver, vamos tomar um café virtual e trocar uma ideia!
+# Meu Portfólio
 
-A Caixa de Ferramentas
-Esse projeto foi feito com uma combinação de tecnologias que eu adoro usar:
+🚀 Bem-vindo ao meu portfólio pessoal! Aqui você pode conhecer meus projetos, habilidades e experiências como desenvolvedor.  
 
-React: O coração da interface, para criar tudo de forma modular e eficiente.
+---
 
-TypeScript: Pra manter o código organizado e sem surpresas.
+## 🛠 Tecnologias Utilizadas
 
-Vite: O turbo que deixa o desenvolvimento super rápido.
+Este projeto foi desenvolvido utilizando:
 
-Tailwind CSS: Pra estilizar tudo com agilidade e sem dores de cabeça.
+- **React** – Biblioteca JavaScript para construção de interfaces.
+- **TypeScript** – Superset do JavaScript que adiciona tipagem estática.
+- **Tailwind CSS** – Framework de CSS utilitário para estilização rápida e responsiva.
 
-Onde Encontrar o Projeto
-O portfólio está online e pronto para ser explorado!
+---
 
-Acesse em: caualemes.com.br
+## 🌐 Acesso Online
+
+O portfólio está hospedado e disponível em:  
+[https://caualemes.com.br](https://caualemes.com.br)  
+
+---
+
+## 🖼 Estrutura do Projeto
+
+O projeto possui uma única página, organizada em **sections** que rolam verticalmente, incluindo:
+
+- Home / Apresentação
+- Sobre mim
+- Projetos
+- Contato
+
+A navegação é simples e intuitiva, e o layout é totalmente responsivo.
+
+---
+
+## ⚡ Como Rodar Localmente
+
+Caso queira rodar o projeto localmente:
+
+```bash
+# Clone o repositório
+git clone https://github.com/seu-usuario/meu-portfolio.git
+
+# Entre na pasta do projeto
+cd meu-portfolio
+
+# Instale as dependências
+npm install
+
+# Rode o projeto em modo de desenvolvimento
+npm run dev
