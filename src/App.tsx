@@ -6,7 +6,7 @@ import Technologies from "./sections/Technologies"; // Adicione a seção Techno
 
 function App() {
   return (
-    <div className="font-sans text-gray-900">
+    <div className="font-sans text-gray-900 bg-gradient-to-tr from-gray-700 via-gray-900 to-black">
       <Hero />
       <Technologies /> 
       <Projects />

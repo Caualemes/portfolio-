@@ -1,6 +1,6 @@
 // src/sections/About.tsx
 import React from 'react';
-import Avatar from '../assets/Avatar.png'; // Importe sua imagem diretamente
+import Avatar from '../assets/perfil.png'; // Importe sua imagem diretamente
 
 const About = () => {
   return (

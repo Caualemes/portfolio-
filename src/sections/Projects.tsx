@@ -4,7 +4,7 @@ import ecoPowerImage from '../assets/eco-power-screenshot.png'; // Substitua pel
 
 const Projects = () => {
   return (
-    <section id="projects" className="flex flex-col items-center min-h-screen p-8 bg-gray-900 text-white">
+    <section id="projects" className="flex flex-col items-center min-h-screen p-8 text-white">
       <h2 className="text-4xl font-bold mb-12">Meus Projetos</h2>
       
       {/* Container do Projeto */}
