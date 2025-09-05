@@ -8,7 +8,7 @@ const Hero = () => {
       className="flex flex-col items-center justify-center min-h-screen text-center p-8 text-white"
     >
       {/* Container do Avatar */}
-      <div className="rounded-full overflow-hidden w-64 h-64 border-4 border-gray-500 mb-8">
+      <div className="">
         <img
           src="/src/assets/avatar.png"
           alt="Avatar"
@@ -33,20 +33,20 @@ const Hero = () => {
           <img
             src="/src/assets/linkedin.svg"
             alt="LinkedIn"
-            className="w-8 h-8 hover:opacity-80 transition"
+            className="w-8 h-8 hover:opacity-80 transition-transform hover:scale-110"
           />
         </a>
 
         {/* Instagram */}
         <a
-          href="https://instagram.com/seu-perfil"
+          href="https://www.instagram.com/caua.cristallemes/"
           target="_blank"
           rel="noopener noreferrer"
         >
           <img
             src="/src/assets/instagram.svg"
             alt="Instagram"
-            className="w-8 h-8 hover:opacity-80 transition"
+            className="w-8 h-8 hover:opacity-80 transition-transform hover:scale-110"
           />
         </a>
 
@@ -59,7 +59,7 @@ const Hero = () => {
           <img
             src="/src/assets/github.svg"
             alt="GitHub"
-            className="w-8 h-8 hover:opacity-80 transition"
+            className="w-8 h-8 hover:opacity-80 transition-transform hover:scale-110"
           />
         </a>
       </div>

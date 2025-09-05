@@ -5,10 +5,10 @@ import Avatar from '../assets/perfil.png'; // Importe sua imagem diretamente
 const About = () => {
   return (
     <section id="about" className="flex flex-col items-center justify-center min-h-screen p-8">
-      <div className="bg-gray-800 rounded-2xl shadow-lg p-8 md:p-12 w-full max-w-5xl">
+      <div className="bg-gray-600 rounded-2xl shadow-lg p-8 md:p-12 w-full max-w-5xl">
         
         {/* Título da seção */}
-        <h2 className="text-3xl md:text-4xl font-semibold text-center text-white mb-8">
+        <h2 className="text-3xl md:text-4xl font-semibold text-end text-white mb-8">
           um pouco sobre mim
         </h2>
         
@@ -27,7 +27,7 @@ const About = () => {
           </div>
           
           {/* Texto de apresentação */}
-          <div className="text-white text-lg space-y-4 text-center md:text-left">
+          <div className="text-white text-lg space-y-4 text-center md:text-justify">
             <p>
               Natural do noroeste paulista, desde pequeno sempre fui um entusiasta da
               tecnologia — do tipo que adorava desmontar as coisas só pra entender
