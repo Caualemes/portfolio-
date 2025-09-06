@@ -30,11 +30,13 @@ const Projects: React.FC<ProjectsProps> = ({ onInView }) => {
       initial="hidden"
       animate={controls}
       variants={fadeInOut}
-      className="flex flex-col items-center min-h-screen p-8 text-white"
+      // Reduzi o padding vertical em mobile
+      className="flex flex-col items-center min-h-screen px-4 py-16 md:p-8 text-white"
     >
-      <h2 className="text-4xl font-bold mb-12">Meus Projetos</h2>
+      <h2 className="text-4xl font-bold mb-8 md:mb-12">Meus Projetos</h2>
 
-      <div className="rounded-2xl p-6 w-full max-w-4xl flex flex-col md:flex-row items-center gap-8">
+      {/* Reduzi o padding do card em mobile */}
+      <div className="bg-white/5 rounded-2xl p-4 md:p-6 w-full max-w-4xl flex flex-col md:flex-row items-center gap-8">
         <motion.a
           href="https://ecopowerpenapolis.com.br"
           target="_blank"
@@ -52,7 +54,8 @@ const Projects: React.FC<ProjectsProps> = ({ onInView }) => {
 
         <div className="flex-1 text-center md:text-left">
           <h3 className="text-3xl font-normal mb-2">EcoPower</h3>
-          <p className="text-gray-300 mb-4">
+          {/* Adicionei a classe text-justify aqui */}
+          <p className="text-gray-300 mb-4 text-justify">
             Site institucional desenvolvido para a filial de Penápolis da maior empresa de energia solar do Brasil.
             O projeto destaca os serviços oferecidos, conta com design responsivo e formulário de contato, trazendo
             uma experiência moderna e intuitiva para os clientes.
@@ -66,7 +69,7 @@ const Projects: React.FC<ProjectsProps> = ({ onInView }) => {
         </div>
       </div>
 
-      <div className="text-xl text-gray-400 mt-12">Em breve...</div>
+      <div className="text-xl text-gray-400 mt-8 md:mt-12">Em breve...</div>
     </motion.section>
   );
 };

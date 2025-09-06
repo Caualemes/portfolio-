@@ -1,4 +1,3 @@
-// src/components/SidebarNavigation.tsx
 import React from 'react';
 
 interface SidebarProps {
@@ -17,14 +16,20 @@ const SidebarNavigation: React.FC<SidebarProps> = ({ activeSection }) => {
     return activeSection === sectionId ? 'opacity-100' : 'opacity-50';
   };
 
+  const handleScroll = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <nav className="fixed right-0 top-1/2 -translate-y-1/2 pr-8 z-40 hidden md:block">
       <ul className="space-y-4">
         {sections.map((section) => (
           <li key={section.id}>
-            <a href={`#${section.id}`} className="group block">
+            <a
+              onClick={() => handleScroll(section.id)}
+              className="group block cursor-pointer" // Adicione o cursor para indicar que é clicável
+            >
               <div
-                // Adicione as classes de hover, transição e duração aqui
                 className={`w-4 h-4 rounded-full bg-white transition-transform duration-300 hover:scale-125 ${getOpacity(section.id)}`}
               ></div>
             </a>

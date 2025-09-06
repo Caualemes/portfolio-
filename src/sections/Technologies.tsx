@@ -42,7 +42,7 @@ const Technologies: React.FC<TechnologiesProps> = ({ onInView }) => {
       className="flex flex-col items-center justify-center min-h-screen p-8 text-white"
     >
       <motion.h2
-        className="text-4xl font-bold mb-32"
+        className="text-4xl font-bold mb-16 md:mb-32"
         initial={{ opacity: 0, y: 0 }}
         animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 0 }}
         transition={{ duration: 1, ease: "easeInOut" }}
@@ -50,7 +50,8 @@ const Technologies: React.FC<TechnologiesProps> = ({ onInView }) => {
         Tecnologias
       </motion.h2>
 
-      <div className="flex flex-wrap justify-center gap-12 max-w-3xl">
+      {/* Alterações aqui: flex-col e gap-y para espaçamento vertical */}
+      <div className="flex flex-col md:flex-row items-center gap-y-8 md:gap-x-12">
         {logos.map((logo, index) => (
           <motion.img
             key={index}
