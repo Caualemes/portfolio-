@@ -1,5 +1,5 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useEffect } from "react";
+import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
 import figmaLogo from "../assets/figma.svg";
@@ -7,6 +7,11 @@ import nestLogo from "../assets/nest.svg";
 import reactLogo from "../assets/react.svg";
 import tailwindLogo from "../assets/tailwind.svg";
 import typescriptLogo from "../assets/typescript.svg";
+
+// Adicione a prop onInView aqui
+interface TechnologiesProps {
+  onInView: (id: string) => void;
+}
 
 const logos = [
   { src: nestLogo, alt: "NestJS" },
@@ -16,17 +21,28 @@ const logos = [
   { src: figmaLogo, alt: "Figma" },
 ];
 
-const Technologies = () => {
-  const [ref, inView] = useInView({ threshold: 0.2 });
+const Technologies: React.FC<TechnologiesProps> = ({ onInView }) => {
+  const controls = useAnimation();
+  const [ref, inView] = useInView({ threshold: 0.4 });
+
+  useEffect(() => {
+    // Chame a prop onInView para notificar o componente App.tsx quando a seção estiver visível
+    if (inView) {
+      onInView("technologies");
+      controls.start("visible");
+    } else {
+      controls.start("hidden");
+    }
+  }, [inView, controls, onInView]);
 
   return (
     <section
+      ref={ref}
       id="technologies"
       className="flex flex-col items-center justify-center min-h-screen p-8 text-white"
     >
       <motion.h2
         className="text-4xl font-bold mb-32"
-        ref={ref}
         initial={{ opacity: 0, y: 0 }}
         animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 0 }}
         transition={{ duration: 1, ease: "easeInOut" }}

@@ -4,14 +4,24 @@ import { useInView } from "react-intersection-observer";
 import { fadeInOut } from "../animations/fade";
 import ecoPowerImage from "../assets/eco-power-screenshot.png";
 
-const Projects = () => {
+// Adicione a prop onInView
+interface ProjectsProps {
+  onInView: (id: string) => void;
+}
+
+const Projects: React.FC<ProjectsProps> = ({ onInView }) => {
   const controls = useAnimation();
-  const [ref, inView] = useInView({ threshold: 0.2 });
+  const [ref, inView] = useInView({ threshold: 0.4 });
 
   useEffect(() => {
-    if (inView) controls.start("visible");
-    else controls.start("hidden");
-  }, [inView, controls]);
+    if (inView) {
+      controls.start("visible");
+      // Chame a prop onInView para notificar o componente App.tsx
+      onInView("projects");
+    } else {
+      controls.start("hidden");
+    }
+  }, [inView, controls, onInView]);
 
   return (
     <motion.section
@@ -24,10 +34,21 @@ const Projects = () => {
     >
       <h2 className="text-4xl font-bold mb-12">Meus Projetos</h2>
 
-      <div className="rounded-2xl shadow-lg p-6 w-full max-w-4xl flex flex-col md:flex-row items-center gap-8">
-        <div className="flex-shrink-0 w-full md:w-1/2">
-          <img src={ecoPowerImage} alt="Screenshot do projeto EcoPower" className="rounded-lg shadow-md" />
-        </div>
+      <div className="rounded-2xl p-6 w-full max-w-4xl flex flex-col md:flex-row items-center gap-8">
+        <motion.a
+          href="https://ecopowerpenapolis.com.br"
+          target="_blank"
+          rel="noopener noreferrer"
+          whileHover={{ scale: 1.05 }}
+          transition={{ duration: 0.3 }}
+          className="flex-shrink-0 w-full md:w-1/2 block"
+        >
+          <img
+            src={ecoPowerImage}
+            alt="Screenshot do projeto EcoPower"
+            className="rounded-lg shadow-md"
+          />
+        </motion.a>
 
         <div className="flex-1 text-center md:text-left">
           <h3 className="text-3xl font-normal mb-2">EcoPower</h3>

@@ -4,20 +4,29 @@ import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { fadeInOut } from "../animations/fade";
 
-const Hero = () => {
+// Adicione a prop onInView
+interface HeroProps {
+  onInView: (id: string) => void;
+}
+
+const Hero: React.FC<HeroProps> = ({ onInView }) => {
   const controls = useAnimation();
-  const [ref, inView] = useInView({ threshold: 0.2 });
+  // Altere o threshold para um valor mais alto (ex: 0.8)
+  const [ref, inView] = useInView({ threshold: 0.8 });
 
   useEffect(() => {
     if (inView) {
       controls.start("visible");
+      // Chame a prop onInView para notificar o componente App.tsx
+      onInView("hero"); 
     } else {
       controls.start("hidden");
     }
-  }, [inView, controls]);
+  }, [inView, controls, onInView]);
 
   return (
-    <motion.section
+    <motion.section 
+      id="hero"
       ref={ref}
       initial="hidden"
       animate={controls}
