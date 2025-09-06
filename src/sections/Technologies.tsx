@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+// src/sections/Technologies.tsx
+import { useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
@@ -8,7 +9,6 @@ import reactLogo from "../assets/react.svg";
 import tailwindLogo from "../assets/tailwind.svg";
 import typescriptLogo from "../assets/typescript.svg";
 
-// Adicione a prop onInView aqui
 interface TechnologiesProps {
   onInView: (id: string) => void;
 }
@@ -26,12 +26,11 @@ const Technologies: React.FC<TechnologiesProps> = ({ onInView }) => {
   const [ref, inView] = useInView({ threshold: 0.4 });
 
   useEffect(() => {
-    // Chame a prop onInView para notificar o componente App.tsx quando a seção estiver visível
     if (inView) {
       onInView("technologies");
-      controls.start("visible");
+      controls.start({ opacity: 1, y: 0, transition: { duration: 1, ease: "easeInOut" } });
     } else {
-      controls.start("hidden");
+      controls.start({ opacity: 0, y: 0 });
     }
   }, [inView, controls, onInView]);
 
@@ -44,13 +43,11 @@ const Technologies: React.FC<TechnologiesProps> = ({ onInView }) => {
       <motion.h2
         className="text-4xl font-bold mb-16 md:mb-32"
         initial={{ opacity: 0, y: 0 }}
-        animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 0 }}
-        transition={{ duration: 1, ease: "easeInOut" }}
+        animate={controls}
       >
         Tecnologias
       </motion.h2>
 
-      {/* Alterações aqui: flex-col e gap-y para espaçamento vertical */}
       <div className="flex flex-col md:flex-row items-center gap-y-8 md:gap-x-12">
         {logos.map((logo, index) => (
           <motion.img
