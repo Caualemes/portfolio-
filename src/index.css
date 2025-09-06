@@ -3,6 +3,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100;300;400;700&display=swap');
+
 
 /* aqui você pode colocar seu CSS extra */
 html, body {

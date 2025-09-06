@@ -1,32 +1,39 @@
-// src/sections/About.tsx
-import React from 'react';
-import Avatar from '../assets/perfil.png'; // Importe sua imagem diretamente
+import React, { useEffect } from "react";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { fadeInOut } from "../animations/fade";
+import Avatar from "../assets/perfil.png";
 
 const About = () => {
+  const controls = useAnimation();
+  const [ref, inView] = useInView({ threshold: 0.2 });
+
+  useEffect(() => {
+    if (inView) controls.start("visible");
+    else controls.start("hidden");
+  }, [inView, controls]);
+
   return (
-    <section id="about" className="flex flex-col items-center justify-center min-h-screen p-8">
-      <div className="bg-gray-600 rounded-2xl shadow-lg p-8 md:p-12 w-full max-w-5xl">
-        
-        {/* Título da seção */}
+    <motion.section
+      ref={ref}
+      id="about"
+      initial="hidden"
+      animate={controls}
+      variants={fadeInOut}
+      className="flex flex-col items-center justify-center min-h-screen p-8"
+    >
+      <div className="bg-white/5 rounded-2xl shadow-lg p-8 md:p-12 w-full max-w-5xl">
         <h2 className="text-3xl md:text-4xl font-semibold text-end text-white mb-8">
           um pouco sobre mim
         </h2>
-        
-        {/* Container principal para a foto e o texto */}
+
         <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
-          
-          {/* Foto com moldura arredondada */}
           <div className="flex-shrink-0">
             <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-gray-500">
-              <img
-                src={Avatar} // Use o import para a imagem
-                alt="Sua foto de perfil"
-                className="w-full h-full object-cover"
-              />
+              <img src={Avatar} alt="Sua foto de perfil" className="w-full h-full object-cover" />
             </div>
           </div>
-          
-          {/* Texto de apresentação */}
+
           <div className="text-white text-lg space-y-4 text-center md:text-justify">
             <p>
               Natural do noroeste paulista, desde pequeno sempre fui um entusiasta da
@@ -49,7 +56,7 @@ const About = () => {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
