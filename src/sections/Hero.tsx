@@ -4,6 +4,12 @@ import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { fadeInOut } from "../animations/fade";
 
+// Importação das imagens para funcionar no Vercel
+import Avatar from "../assets/avatar.png";
+import LinkedinIcon from "../assets/linkedin.svg";
+import InstagramIcon from "../assets/instagram.svg";
+import GithubIcon from "../assets/github.svg";
+
 interface HeroProps {
   onInView: (id: string) => void;
 }
@@ -32,7 +38,7 @@ const Hero: React.FC<HeroProps> = ({ onInView }) => {
     >
       <div>
         <img
-          src="/src/assets/avatar.png"
+          src={Avatar}
           alt="Avatar"
           className="w-full h-full object-cover"
         />
@@ -45,13 +51,13 @@ const Hero: React.FC<HeroProps> = ({ onInView }) => {
 
       <div className="flex space-x-6">
         <a href="https://www.linkedin.com/in/caualemes" target="_blank" rel="noopener noreferrer">
-          <img src="/src/assets/linkedin.svg" alt="LinkedIn" className="w-8 h-8 hover:scale-110 transition-transform" />
+          <img src={LinkedinIcon} alt="LinkedIn" className="w-8 h-8 hover:scale-110 transition-transform" />
         </a>
         <a href="https://www.instagram.com/caua.cristallemes/" target="_blank" rel="noopener noreferrer">
-          <img src="/src/assets/instagram.svg" alt="Instagram" className="w-8 h-8 hover:scale-110 transition-transform" />
+          <img src={InstagramIcon} alt="Instagram" className="w-8 h-8 hover:scale-110 transition-transform" />
         </a>
         <a href="https://github.com/caualemes" target="_blank" rel="noopener noreferrer">
-          <img src="/src/assets/github.svg" alt="GitHub" className="w-8 h-8 hover:scale-110 transition-transform" />
+          <img src={GithubIcon} alt="GitHub" className="w-8 h-8 hover:scale-110 transition-transform" />
         </a>
       </div>
     </motion.section>
