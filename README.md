@@ -25,10 +25,10 @@ O portfólio está hospedado e disponível em:
 
 O projeto possui uma única página, organizada em **sections** que rolam verticalmente, incluindo:
 
-- Home / Apresentação
-- Sobre mim
+- Home 
+- Tecnologias
 - Projetos
-- Contato
+- Sobre 
 
 A navegação é simples e intuitiva, e o layout é totalmente responsivo.
 
@@ -39,14 +39,21 @@ A navegação é simples e intuitiva, e o layout é totalmente responsivo.
 Caso queira rodar o projeto localmente:
 
 ```bash
-# Clone o repositório
-git clone https://github.com/seu-usuario/meu-portfolio.git
+---
 
-# Entre na pasta do projeto
-cd meu-portfolio
+## ⚡ Como Rodar Localmente
+
+Siga os passos abaixo para rodar o projeto na sua máquina:
+
+```bash
+# Clone o repositório
+git clone https://github.com/Caualemes/portfolio-.git
+
+# Navegue para o diretório do projeto
+cd portfolio-
 
 # Instale as dependências
 npm install
 
-# Rode o projeto em modo de desenvolvimento
+# Inicie o servidor de desenvolvimento
 npm run dev
